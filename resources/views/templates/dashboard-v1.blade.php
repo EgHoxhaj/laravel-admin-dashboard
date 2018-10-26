@@ -20,17 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>150</h3>
-
-                            <p>New Orders</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
+                    <widget amount="150" label="New Orders" icon="ion ion-bag" href="#"></widget>
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
@@ -150,7 +140,7 @@
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                                        Alexander Pierce
+                                        {{auth()->user()->name}}
                                     </a>
                                     I would like to meet you to discuss the latest news about
                                     the arrival of the new theme. They say it is going to be one the

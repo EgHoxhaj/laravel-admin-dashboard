@@ -40,7 +40,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini wysihtml5-supported" style="height: auto; min-height: 100%;">
 <section>
-    <div class="wrapper" style="height: auto; min-height: 100%;">
+    <div id="app" class="wrapper" style="height: auto; min-height: 100%;">
         <div>
             @include('partials.leftPanel')
         </div>

@@ -2,10 +2,15 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property string name
+ * @property string first_name
+ * @property string last_name
+ * @property string email
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -27,4 +32,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getNameAttribute(): string
+    {
+        $first_name = $this->first_name;
+        $last_name = $this->last_name;
+
+        if (!$last_name) {
+            return $first_name;
+        }
+
+        return $first_name . ' ' . $last_name;
+    }
+
+    public function setNameAttribute($name): void
+    {
+        [$first_name, $last_name] = explode(' ', $name);
+
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+    }
 }
