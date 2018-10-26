@@ -21,3 +21,5 @@ Vue.component('widget', require('./components/WidgetComponent'));
 const app = new Vue({
     el: '#app'
 });
+
+require('./demo');
